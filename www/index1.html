@@ -32,10 +32,10 @@
     <body>
         <div class="app">
             <h1>PhoneGap</h1>
-            <form action="http://ecomobile.tioo.ru/actions.php">
-				<input type="text" name="num">
-				<input type="submit" name="send" value="Send">
-			</form>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
