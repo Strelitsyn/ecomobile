@@ -38,6 +38,7 @@ $(document).ready(function(){
 	});
 	
 	$(".set").click(function(){
+		alert(images[0]);
 		$(".js-card-form input[type=file]").val(images[0]);
 	});
 	
