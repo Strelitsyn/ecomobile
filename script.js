@@ -37,8 +37,11 @@ $(document).ready(function(){
 		takePhoto();
 	});
 	
-	$(".send").click(function(){
+	$(".set").click(function(){
 		$(".js-card-form input[type=file]").val(images[0]);
+	});
+	
+	$(".send").click(function(){
 		$(".js-card-form").submit();
 	});
 
