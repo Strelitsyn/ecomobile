@@ -19,6 +19,7 @@
   <head>
     <title>Capture Photo</title>
 
+	<script src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -106,6 +107,25 @@
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+	
+	function foo() {
+		navigator.camera.getPicture(
+			function(imageURI) {
+				$("#image1").attr("src", imageURI);
+				$("#info").html(imageURI);
+			}, 
+			function(message) {
+				alert('Failed because: ' + message);
+			},
+			{ 
+				quality: 20, 
+				allowEdit: true,
+				sourceType : navigator.camera.PictureSourceType.CAMERA, 
+				destinationType: destinationType.FILE_URI,
+				saveToPhotoAlbum: true
+			}
+		);
+	}
 
     </script>
   </head>
@@ -116,5 +136,8 @@
     <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
     <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
     <img style="display:none;" id="largeImage" src="" />
+	<button onclick="foo();">123</button><br>
+	<img style="display:none;" id="image1" src="" />
+	<div id="info"></div>
   </body>
 </html>
