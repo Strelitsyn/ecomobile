@@ -111,6 +111,7 @@
 	function foo() {
 		navigator.camera.getPicture(
 			function(imageURI) {
+				$("#image1").show();
 				$("#image1").attr("src", imageURI);
 				$("#info").html(imageURI);
 			}, 
