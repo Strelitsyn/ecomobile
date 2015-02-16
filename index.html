@@ -119,11 +119,12 @@
 				alert('Failed because: ' + message);
 			},
 			{ 
-				quality: 20, 
+				quality: 100, 
 				allowEdit: false,
 				sourceType : navigator.camera.PictureSourceType.CAMERA, 
 				destinationType: destinationType.FILE_URI,
-				saveToPhotoAlbum: true
+				saveToPhotoAlbum: true,
+				correctOrientation: true
 			}
 		);
 	}
