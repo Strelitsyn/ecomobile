@@ -49,20 +49,24 @@ function uploadPhoto(imageURI){
 	options.params = params;
 
 	var ft = new FileTransfer();
-	ft.upload(imageURI, encodeURI("http://ecomobile.tioo.ru/actions.php"), win, fail, options);
-}
-
-function win(r){
-	console.log("Code = "+ r.responseCode);
-	console.log("Response = "+ r.response);
-	console.log("Sent = "+ r.bytesSent);
-	alert("Success!");
-}
-
-function fail(error){
-	alert("An error has occurred: Code = "+ error.code);
-	console.log("upload error source "+ error.source);
-	console.log("upload error target "+ error.target);
+	ft.upload(
+		imageURI, 
+		encodeURI("http://ecomobile.tioo.ru/actions.php"), 
+		function(r){
+			console.log("Code = "+ r.responseCode);
+			console.log("Response = "+ r.response);
+			console.log("Sent = "+ r.bytesSent);
+			$(".sendMessage").html("");
+			alert("Загрузка завершена!");
+		}, 
+		function(error){
+			$(".sendMessage").html("");
+			alert("An error has occurred: Code = "+ error.code);
+			console.log("upload error source "+ error.source);
+			console.log("upload error target "+ error.target);
+		}, 
+		options
+	);
 }
 
 function showLoader(){
@@ -101,14 +105,8 @@ $(document).ready(function(){
 	});
 	
 	$(".js-send-card").click(function(){
-		alert("Загрузка");
+		$(".sendMessage").html("Подождите, идёт загрузка...");
 		uploadPhoto(images[0]);
-	
-	});
-	
-	$(".js-send-card1").click(function(){
-		alert("Загрузка");
-	
 	});
     
 });
