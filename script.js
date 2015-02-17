@@ -107,5 +107,9 @@ $(document).ready(function(){
 	
 	});
 	
+	$(".js-send-card1").click(function(){
+		showLoader();
+	
+	});
     
 });
