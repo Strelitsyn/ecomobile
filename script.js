@@ -56,12 +56,28 @@ function win(r){
 	console.log("Code = "+ r.responseCode);
 	console.log("Response = "+ r.response);
 	console.log("Sent = "+ r.bytesSent);
+	hideLoader();
+	alert("Success!");
 }
 
 function fail(error){
 	alert("An error has occurred: Code = "+ error.code);
 	console.log("upload error source "+ error.source);
 	console.log("upload error target "+ error.target);
+}
+
+function showLoader(){
+	$.mobile.loading("show",{
+		text: "",
+		textVisible: false,
+		theme: "a",
+		textonly: false,
+		html: ""
+    });
+}
+
+function hideLoader() {
+	$.mobile.loading("hide");
 }
 
 
@@ -86,7 +102,10 @@ $(document).ready(function(){
 	});
 	
 	$(".js-send-card").click(function(){
+		showLoader();
 		uploadPhoto(images[0]);
 	
 	});
+	
+    
 });
