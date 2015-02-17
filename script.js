@@ -9,9 +9,10 @@ function onDeviceReady() {
 
 // Массив со ссылками на фото
 var images = []; 
-
 // Коммент
 var comment;
+// Имена файлов фото на сервере
+var serverImages = [];
 
 // Сделать фото
 function takePhoto() {
@@ -57,8 +58,8 @@ function uploadPhoto(imageURI){
 			console.log("Response = "+ r.response);
 			console.log("Sent = "+ r.bytesSent);
 			$(".sendMessage").html("Отправка завершена!");
-			var res = $.parseJSON(r.response);
-			alert(res.file);
+			serverImages.push(r.response);
+			alert(serverImages[0]);
 		}, 
 		function(error){
 			$(".sendMessage").html("");
