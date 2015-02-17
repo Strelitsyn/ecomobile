@@ -56,8 +56,9 @@ function uploadPhoto(imageURI){
 			console.log("Code = "+ r.responseCode);
 			console.log("Response = "+ r.response);
 			console.log("Sent = "+ r.bytesSent);
-			$(".sendMessage").html("");
-			alert("Загрузка завершена!");
+			$(".sendMessage").html("Отправка завершена!");
+			res = JSON.parse(r.response);
+			alert(res.file);
 		}, 
 		function(error){
 			$(".sendMessage").html("");
@@ -105,7 +106,7 @@ $(document).ready(function(){
 	});
 	
 	$(".js-send-card").click(function(){
-		$(".sendMessage").html("Подождите, идёт загрузка...");
+		$(".sendMessage").html("Подождите, идёт отправка...");
 		uploadPhoto(images[0]);
 	});
     
