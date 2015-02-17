@@ -1,8 +1,4 @@
-﻿document.addEventListener("deviceready",onDeviceReady,false);
-function onDeviceReady() {
-}
-
-// Сервер
+﻿// Сервер
 var serverAddress = "http://ecomobile.tioo.ru";
 // Массив со ссылками на фото
 var images = []; 
@@ -10,6 +6,15 @@ var images = [];
 var comment;
 // Имена файлов фото на сервере
 var serverImages = [];
+// Геолокация
+var latitude;
+var longitude;
+
+
+document.addEventListener("deviceready",onDeviceReady,false);
+function onDeviceReady() {
+	getLocation();
+}
 
 // Сделать фото
 function takePhoto() {
@@ -29,6 +34,21 @@ function takePhoto() {
 			destinationType: navigator.camera.DestinationType.FILE_URI,
 			saveToPhotoAlbum: true,
 			correctOrientation: true
+		}
+	);
+}
+
+// Получить координаты
+function getLocation() {
+	navigator.geolocation.getCurrentPosition(
+		function(position){
+			latitude = position.coords.latitude;
+			longitude = position.coords.longitude;
+			alert(latitude);
+			alert(longitude);
+		}, 
+		function(error){
+			alert("Ошибка геолокации: " + error.message);
 		}
 	);
 }
@@ -71,8 +91,8 @@ function uploadPhoto(imageURI){
 			}
 		}, 
 		function(error){
-			$(".sendMessage").html("");
-			alert("An error has occurred: Code = "+ error.code);
+			$(".sendMessage").html("Ошибка");
+			alert("Ошибка фото: Code = "+ error.code);
 			console.log("upload error source "+ error.source);
 			console.log("upload error target "+ error.target);
 		}, 
