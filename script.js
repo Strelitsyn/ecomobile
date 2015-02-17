@@ -56,7 +56,6 @@ function win(r){
 	console.log("Code = "+ r.responseCode);
 	console.log("Response = "+ r.response);
 	console.log("Sent = "+ r.bytesSent);
-	hideLoader();
 	alert("Success!");
 }
 
@@ -102,13 +101,13 @@ $(document).ready(function(){
 	});
 	
 	$(".js-send-card").click(function(){
-		showLoader();
+		alert("Загрузка");
 		uploadPhoto(images[0]);
 	
 	});
 	
 	$(".js-send-card1").click(function(){
-		showLoader();
+		alert("Загрузка");
 	
 	});
     
