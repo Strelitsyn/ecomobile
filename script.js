@@ -38,7 +38,7 @@ function takePhoto() {
 // Отправить фото
 function uploadPhoto(imageURI) {
 	var options = new FileUploadOptions();
-	options.fileKey="file";
+	options.fileKey="photo";
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
 	options.mimeType="image/jpeg";
 
