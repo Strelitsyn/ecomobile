@@ -10,6 +10,10 @@ function onDeviceReady() {
 // Массив со ссылками на фото
 var images = []; 
 
+// Коммент
+var comment;
+
+// Сделать фото
 function takePhoto() {
 	navigator.camera.getPicture(
 		function(imageURI) {
@@ -31,6 +35,33 @@ function takePhoto() {
 	);
 }
 
+// Отправить фото
+function uploadPhoto(imageURI) {
+	var options = new FileUploadOptions();
+	options.fileKey="file";
+	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+	options.mimeType="image/jpeg";
+
+	var params = new Object();
+	params.value1 = "test";
+	params.value2 = "param";
+
+	options.params = params;
+	options.chunkedMode = false;
+
+	var ft = new FileTransfer();
+	ft.upload(
+		imageURI, 
+		"http://ecomobile.tioo.ru/actions.php", 
+		function(){}, 
+		function(error) {
+			alert("An error has occurred: Code = " = error.code);
+		}, 
+		options
+	);
+}
+
+
 $(document).ready(function(){
 	
 	$(".js-take-photo").click(function(){
@@ -45,6 +76,14 @@ $(document).ready(function(){
 	$(".send").click(function(){
 		$(".js-card-form").submit();
 	});
-
-
+	
+	$(".js-set-comment").click(function(){
+		comment = $(".js-comment").val();
+		alert(comment);
+	});
+	
+	$(".js-send-card").click(function(){
+		uploadPhoto(images[0]);
+	
+	});
 });

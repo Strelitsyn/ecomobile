@@ -27,6 +27,8 @@
 		<script type="text/javascript" charset="utf-8" src="script.js"></script>
 	</head>
 	<body>
+	
+		<!-- ШАГ 1 -->
 		<div data-role="page" id="step1">
 			<div data-role="header">
 				<h1>Шаг 1</h1>
@@ -38,24 +40,39 @@
 				<div class="photoBlock">
 					<img class="photo" src=""/>
 				</div>
-				<form class="js-card-form" action="ecomobile.tioo.ru/actions.php" method="post" enctype="multipart/form-data">
-					<input type="file" name="photo"/>
-				</form>
-				<button class="set">Set</button>
-				<button class="send">Send</button>
 				<a href="#step2"><button class="nextButton">Дальше</button></a>
 			</div>
 		</div>
+		
+		<!-- ШАГ 2 -->
 		<div data-role="page" id="step2">
 			<div data-role="header">
 				<h1>Шаг 2</h1>
 			</div>
 			<div data-role="content">
+				<div class="commentBlock">
+					<textarea class="js-comment"></textarea>
+				</div>
 				<div class="backButton">
 					<a href="#step1"><button>Назад</button></a>
 				</div>
 				<div class="nextButton">
-					<a href="#step2"><button>Дальше</button></a>
+					<a href="#step3" class="js-set-comment"><button>Дальше</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ШАГ 3 -->
+		<div data-role="page" id="step3">
+			<div data-role="header">
+				<h1>Шаг 3</h1>
+			</div>
+			<div data-role="content">
+				<div class="sendCardBlock">
+					<button class="js-send-card">Отправить</button>
+				</div>
+				<div class="backButton">
+					<a href="#step2"><button>Назад</button></a>
 				</div>
 			</div>
 		</div>
