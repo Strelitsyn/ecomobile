@@ -36,30 +36,34 @@ function takePhoto() {
 }
 
 // Отправить фото
-function uploadPhoto(imageURI) {
-	var options = new FileUploadOptions();
-	options.fileKey="photo";
+function uploadPhoto(imageURI){
+	var options =newFileUploadOptions();
+	options.fileKey="file";
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
 	options.mimeType="image/jpeg";
 
-	var params = new Object();
-	params.value1 = "test";
-	params.value2 = "param";
+	var params ={};
+	params.value1 ="test";
+	params.value2 ="param";
 
 	options.params = params;
-	options.chunkedMode = false;
 
-	var ft = new FileTransfer();
-	ft.upload(
-		imageURI, 
-		"http://ecomobile.tioo.ru/actions.php", 
-		function(){}, 
-		function(error) {
-			alert("An error has occurred: Code = " = error.code);
-		}, 
-		options
-	);
+	var ft =newFileTransfer();
+	ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
 }
+
+function win(r){
+	console.log("Code = "+ r.responseCode);
+	console.log("Response = "+ r.response);
+	console.log("Sent = "+ r.bytesSent);
+}
+
+function fail(error){
+	alert("An error has occurred: Code = "+ error.code);
+	console.log("upload error source "+ error.source);
+	console.log("upload error target "+ error.target);
+}
+
 
 
 $(document).ready(function(){
