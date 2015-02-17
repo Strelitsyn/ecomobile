@@ -37,7 +37,7 @@ function takePhoto() {
 
 // Отправить фото
 function uploadPhoto(imageURI){
-	var options =newFileUploadOptions();
+	var options = new FileUploadOptions();
 	options.fileKey="file";
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
 	options.mimeType="image/jpeg";
@@ -48,8 +48,8 @@ function uploadPhoto(imageURI){
 
 	options.params = params;
 
-	var ft =newFileTransfer();
-	ft.upload(imageURI, encodeURI("http://some.server.com/upload.php"), win, fail, options);
+	var ft = new FileTransfer();
+	ft.upload(imageURI, encodeURI("http://ecomobile.tioo.ru/actions.php"), win, fail, options);
 }
 
 function win(r){
@@ -83,7 +83,6 @@ $(document).ready(function(){
 	
 	$(".js-set-comment").click(function(){
 		comment = $(".js-comment").val();
-		alert(comment);
 	});
 	
 	$(".js-send-card").click(function(){
