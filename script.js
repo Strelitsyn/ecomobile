@@ -57,8 +57,8 @@ function uploadPhoto(imageURI){
 			console.log("Response = "+ r.response);
 			console.log("Sent = "+ r.bytesSent);
 			$(".sendMessage").html("Отправка завершена!");
-			//res = $parse(r.response);
-			alert(r.response);
+			var res = $.parseJSON(r.response);
+			alert(res.file);
 		}, 
 		function(error){
 			$(".sendMessage").html("");
