@@ -1,12 +1,9 @@
-﻿// Wait for Cordova to connect with the device
-//
-document.addEventListener("deviceready",onDeviceReady,false);
-
-// Cordova is ready to be used!
-//
+﻿document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady() {
 }
 
+// Сервер
+var serverAddress = "http://ecomobile.tioo.ru";
 // Массив со ссылками на фото
 var images = []; 
 // Коммент
@@ -52,14 +49,26 @@ function uploadPhoto(imageURI){
 	var ft = new FileTransfer();
 	ft.upload(
 		imageURI, 
-		encodeURI("http://ecomobile.tioo.ru/actions.php"), 
+		encodeURI(serverAddress + "/actions.php"), 
 		function(r){
 			console.log("Code = "+ r.responseCode);
 			console.log("Response = "+ r.response);
 			console.log("Sent = "+ r.bytesSent);
-			$(".sendMessage").html("Отправка завершена!");
-			serverImages.push(r.response);
-			alert(serverImages[0]);
+			if (r.response == "error") {
+				$(".sendMessage").html("Ошибка");
+			}
+			else {
+				serverImages.push(r.response);
+				$.ajax({
+					type: "POST",
+					url: serverAddress + "/create_card.php",
+					data: {comment: "123"},
+					success: function(msg){
+						$(".sendMessage").html("Отправка завершена!");
+						alert( "Data Saved: " + msg );
+					}
+				});
+			}
 		}, 
 		function(error){
 			$(".sendMessage").html("");
