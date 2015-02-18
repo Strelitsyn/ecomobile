@@ -56,7 +56,7 @@ var serverAddress = "http://ecomobile.tioo.ru";
 function initMap() { 
 	map = new ymaps.Map ("mapBlock", {
 		center: [55.1, 36.6],
-		zoom: 4,
+		zoom: 12,
 	}); 
 	
 	map.controls.add(
@@ -68,7 +68,7 @@ function locateMarks() {
 	// Получение списка всех карточек
 	$.ajax({
 		type: "POST",
-		url: serverAddress + "/getCards.php",
+		url: serverAddress + "/get_cards.php",
 		data: { },
 	}).done(function(result) {
 		alert(result);
