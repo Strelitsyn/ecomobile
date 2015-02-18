@@ -70,9 +70,8 @@ function locateMarks() {
 		type: "POST",
 		url: serverAddress + "/get_cards.php",
 		data: { },
-	}).done(function(result) {
-		alert(result);
-		dbData = JSON.parse(result);
+		dataType: "json"
+	}).done(function(dbData) {
 		if (!dbData.error) {
 			for (i = 0; i < dbData.length; i++) {
 				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
