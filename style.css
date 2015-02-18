@@ -8,13 +8,11 @@
 .photoBlock {
 	margin: 0 auto;
 	width: 90%;
-	height: 200px;
 }
 
 .photo {
 	/*display: none;*/
-	width: 100%;
-	height: 100%;
+	max-width: 100%;
 }
 
 .accordion {

@@ -13,7 +13,6 @@ var longitude;
 
 document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady() {
-	getLocation();
 }
 
 // Сделать фото
@@ -82,7 +81,7 @@ function uploadPhoto(imageURI){
 				$.ajax({
 					type: "POST",
 					url: serverAddress + "/create_card.php",
-					data: {comment: "123"},
+					data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
 					success: function(msg){
 						$(".sendMessage").html("Отправка завершена!");
 						alert( "Data Saved: " + msg );
@@ -119,6 +118,7 @@ function hideLoader() {
 $(document).ready(function(){
 	
 	$(".js-take-photo").click(function(){
+		getLocation();
 		takePhoto();
 	});
 	
