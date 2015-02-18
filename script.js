@@ -82,7 +82,6 @@ function uploadPhoto(imageURI){
 					data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
 					success: function(msg){
 						$(".sendMessage").html("Отправка завершена!");
-						alert( "Data Saved: " + msg );
 					}
 				});
 			}
