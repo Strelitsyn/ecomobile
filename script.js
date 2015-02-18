@@ -43,8 +43,6 @@ function getLocation() {
 		function(position){
 			latitude = position.coords.latitude;
 			longitude = position.coords.longitude;
-			alert(latitude);
-			alert(longitude);
 		}, 
 		function(error){
 			alert("Ошибка геолокации: " + error.message);
