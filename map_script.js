@@ -64,8 +64,7 @@ function initMap() {
 	);
 }
 
-ymaps.ready(function() {
-	initMap();
+function locateMarks() {
 	// Получение списка всех карточек
 	$.ajax({
 		type: "POST",
@@ -90,10 +89,16 @@ ymaps.ready(function() {
 			alert(dbData.error);
 		}
 	});
+}
+
+ymaps.ready(function() {
+	initMap();
 });
 	
 
 $(document).ready(function() {
-
+	$(".js-locate_marks").click(function(){
+		locateMarks();
+	});
 
 });
