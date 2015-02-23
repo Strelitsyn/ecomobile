@@ -57,7 +57,10 @@ function initMap() {
 	map = new ymaps.Map ("mapBlock", {
 		center: [55.1, 36.6],
 		zoom: 12,
-	}); 
+	});
+
+	foo = new ymaps.Placemark([55.1, 36.6]);	
+	map.geoObjects.add(foo);
 }
 
 function locateMarks() {
