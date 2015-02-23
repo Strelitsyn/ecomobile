@@ -114,14 +114,17 @@ function hideLoader() {
 
 $(document).ready(function(){
 	
+	$(".qwe1").click(function(){
+		localStorage.setItem('key', 'value');
+	});
+	
+	$(".qwe2").click(function(){
+		alert(localStorage.getItem('key'));
+	});
+	
 	$(".js-take-photo").click(function(){
 		getLocation();
 		takePhoto();
-	});
-	
-	$(".set").click(function(){
-		alert(images[0]);
-		$(".js-card-form input[type=file]").val(images[0]);
 	});
 	
 	$(".send").click(function(){

@@ -54,6 +54,11 @@ var cards = [];
 	});
 }*/
 
+function markClick(e) {
+	var eCard = e.get('target');
+	alert(eCard.id);
+}
+
 function initMap() { 
 	map = new ymaps.Map ("mapBlock", {
 		center: [55.1, 36.6],
@@ -71,7 +76,7 @@ function locateMarks() {
 		dataType: "json"
 	}).done(function(dbData) {
 		alert(dbData[0].card_coord_lat);
-		//if (!dbData.error) {
+		if (!dbData.error) {
 			for (i = 0; i < dbData.length; i++) {
 				alert(i);
 				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
@@ -84,10 +89,10 @@ function locateMarks() {
 					markClick(e);
 				});*/
 			}
-		/*}
+		}
 		else {
 			alert(dbData.error);
-		}*/
+		}
 	});
 }
 
@@ -99,18 +104,5 @@ ymaps.ready(function() {
 $(document).ready(function() {
 	$(".js-locate_marks").click(function(){
 		locateMarks();
-	});
-
-	$(".qwe").click(function(){
-		alert(1);
-		$.ajax({
-			type: "POST",
-			url: "http://ecomobile.tioo.ru/get_cards.php",
-			data: {comment: "123", latitude: 12, longitude: 12, photo: "qwe"},
-			dataType: "json", 
-			success: function(msg){
-				alert(msg.res);
-			}
-		});
 	});
 });
