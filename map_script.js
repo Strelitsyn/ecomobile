@@ -7,6 +7,7 @@
 ];
 var dbData = [];
 var serverAddress = "http://ecomobile.tioo.ru";
+var cards = [];
 
 /*function markClick(e) {
 	var eCard = e.get('target');
@@ -73,10 +74,10 @@ function locateMarks() {
 		//if (!dbData.error) {
 			for (i = 0; i < dbData.length; i++) {
 				alert(i);
-				//cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
+				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
 				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon]);
 				cards[i].id = dbData[i].card_id;
-				map.geoObjects.add(cards[i]);
+				//map.geoObjects.add(cards[i]);
 				
 				// Клик по метке
 				/*cards[i].events.add('click', function(e) {
