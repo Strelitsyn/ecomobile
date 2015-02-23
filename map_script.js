@@ -72,7 +72,8 @@ function locateMarks() {
 		alert(dbData[0].card_coord_lat);
 		//if (!dbData.error) {
 			for (i = 0; i < dbData.length; i++) {
-				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
+				//cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
+				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon]);
 				cards[i].id = dbData[i].card_id;
 				map.geoObjects.add(cards[i]);
 				
