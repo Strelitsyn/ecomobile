@@ -141,7 +141,7 @@ $(document).ready(function(){
 		alert(1);
 		$.ajax({
 			type: "POST",
-			url: "http://ecomobile.tioo.ru/create_card.php",
+			url: "http://ecomobile.tioo.ru/get_cards.php",
 			data: {comment: "123", latitude: 12, longitude: 12, photo: "qwe"},
 			dataType: "json", 
 			success: function(msg){
