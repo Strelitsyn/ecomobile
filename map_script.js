@@ -100,18 +100,5 @@ $(document).ready(function() {
 		alert(123);
 		locateMarks();
 	});
-	
-	$(".qwe").click(function(){
-		alert(1);
-		$.ajax({
-			type: "POST",
-			url: "http://ecomobile.tioo.ru/create_card.php",
-			data: {comment: "123", latitude: 12, longitude: 12, photo: "qwe"},
-			dataType: "json", 
-			success: function(msg){
-				alert(msg.res);
-			}
-		});
-	});
 
 });
