@@ -58,10 +58,6 @@ function initMap() {
 		center: [55.1, 36.6],
 		zoom: 12,
 	}); 
-	
-	map.controls.add(
-	   new ymaps.control.ZoomControl()
-	);
 }
 
 function locateMarks() {
@@ -96,10 +92,21 @@ ymaps.ready(function() {
 	
 
 $(document).ready(function() {
-	alert(123);
 	$(".js-locate_marks").click(function(){
 		alert(123);
 		locateMarks();
 	});
 
+	$(".qwe").click(function(){
+		alert(1);
+		$.ajax({
+			type: "POST",
+			url: "http://ecomobile.tioo.ru/get_cards.php",
+			data: {comment: "123", latitude: 12, longitude: 12, photo: "qwe"},
+			dataType: "json", 
+			success: function(msg){
+				alert(msg.res);
+			}
+		});
+	});
 });
