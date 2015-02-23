@@ -71,6 +71,23 @@
 			</div>
 			<div data-role="content">
 				<div class="sendCardBlock">
+					<script>
+						$(document).ready(function(){
+							$(".qwe").click(function(){
+								alert(1);
+								$.ajax({
+									type: "POST",
+									url: "http://ecomobile.tioo.ru/create_card.php",
+									data: {comment: "123", latitude: 12, longitude: 12, photo: "qwe"},
+									dataType: "json", 
+									success: function(msg){
+										alert(msg.res);
+									}
+								});
+							});
+						});
+					</script>
+					<button class="qwe">123</button>
 					<button class="js-send-card">Отправить</button>
 					<div class="sendMessage"></div>
 				</div>
