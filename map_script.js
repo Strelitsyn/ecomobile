@@ -58,9 +58,6 @@ function initMap() {
 		center: [55.1, 36.6],
 		zoom: 12,
 	});
-
-	foo = new ymaps.Placemark([55.1, 36.6]);	
-	map.geoObjects.add(foo);
 }
 
 function locateMarks() {
@@ -73,7 +70,7 @@ function locateMarks() {
 		dataType: "json"
 	}).done(function(dbData) {
 		alert(dbData);
-		if (!dbData.error) {
+		//if (!dbData.error) {
 			for (i = 0; i < dbData.length; i++) {
 				cards[i] = new ymaps.Placemark([dbData[i].card_coord_lat, dbData[i].card_coord_lon], {}, styles[dbData[i].card_status_id]);
 				cards[i].id = dbData[i].card_id;
@@ -84,10 +81,10 @@ function locateMarks() {
 					markClick(e);
 				});*/
 			}
-		}
+		/*}
 		else {
 			alert(dbData.error);
-		}
+		}*/
 	});
 }
 
