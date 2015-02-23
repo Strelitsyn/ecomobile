@@ -96,6 +96,7 @@ ymaps.ready(function() {
 	
 
 $(document).ready(function() {
+	alert(123);
 	$(".js-locate_marks").click(function(){
 		alert(123);
 		locateMarks();
