@@ -110,9 +110,29 @@ function hideLoader() {
 	$.mobile.loading("hide");
 }
 
+function getUserId() {
+	$.ajax({
+		type: "POST",
+		url: serverAddress + "/create_card.php",
+		data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
+		success: function(msg){
+			$(".sendMessage").html("Отправка завершена!");
+		}
+	});
+}
+
 
 
 $(document).ready(function(){
+
+	$.ajax({
+		type: "POST",
+		url: serverAddress + "/create_card.php",
+		data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
+		success: function(msg){
+			$(".sendMessage").html("Отправка завершена!");
+		}
+	});
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');
