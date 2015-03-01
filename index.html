@@ -1,7 +1,93 @@
 ﻿<!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Refresh" content="1; URL=http://google.ru/">
+		<title>Ecomobile</title>
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+		<link rel="stylesheet" href="style.css"/>
+		<script src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Map,Placemark,geoObject.addon.balloon,geoObject.addon.hint,map.addon.balloon,map.addon.hint" type="text/javascript"></script>
+		<script type="text/javascript" charset="utf-8" src="map_script.js"></script>
+		<script type="text/javascript" charset="utf-8" src="script.js"></script>
 	</head>
 	<body>
+	
+		<!-- НАЧАЛО -->
+		<div data-role="page" id="enter">
+			<div data-role="header">
+				<h1>Вход</h1>
+			</div>
+			<div data-role="content">
+				<a href="/register.html"><button class="goToRegisterButton">Регистрация</button></a>
+			</div>
+		</div>
+	
+		<!-- ШАГ 1 -->
+		<div data-role="page" id="step1">
+			<div data-role="header">
+				<h1>Шаг 1</h1>
+			</div>
+			<div data-role="content">
+				<div class="takePhotoButton">
+					<button class="js-take-photo">Сделать фото</button>
+					<button class="qwe1">qwe1</button>
+					<button class="qwe2">qwe2</button>
+				</div>
+				<div class="photoBlock">
+					<img class="photo" src=""/>
+				</div>
+				<a href="#step2"><button class="nextButton">Дальше</button></a>
+			</div>
+		</div>
+		
+		<!-- ШАГ 2 -->
+		<div data-role="page" id="step2">
+			<div data-role="header">
+				<h1>Шаг 2</h1>
+			</div>
+			<div data-role="content">
+				<div class="commentBlock">
+					<textarea class="js-comment"></textarea>
+				</div>
+				<div class="backButton">
+					<a href="#step1"><button>Назад</button></a>
+				</div>
+				<div class="nextButton">
+					<a href="#step3" class="js-set-comment"><button>Дальше</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ШАГ 3 -->
+		<div data-role="page" id="step3">
+			<div data-role="header">
+				<h1>Шаг 3</h1>
+			</div>
+			<div data-role="content">
+				<div class="sendCardBlock">
+					<button class="qwe">123</button>
+					<button class="js-send-card">Отправить</button>
+					<div class="sendMessage"></div>
+				</div>
+				<div class="backButton">
+					<a href="#step2"><button>Назад</button></a>
+				</div>
+				<div class="nextButton">
+					<a href="#map" class="js-locate_marks"><button>Посмотреть</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- КАРТА -->
+		<div data-role="page" id="map">
+			<div data-role="header">
+				<h1>Карта</h1>
+			</div>
+			<div data-role="content">
+				<div id="mapBlock"></div>
+			</div>
+		</div>
+	</body>
 </html>

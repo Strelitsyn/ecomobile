@@ -113,7 +113,7 @@ function hideLoader() {
 function getUserId() {
 	$.ajax({
 		type: "POST",
-		url: serverAddress + "/create_card.php",
+		url: serverAddress + "/get_user_id.php",
 		data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
 		success: function(msg){
 			$(".sendMessage").html("Отправка завершена!");
@@ -121,18 +121,42 @@ function getUserId() {
 	});
 }
 
+function login(login, password) {
+	$.ajax({
+		type: "POST",
+		url: serverAddress + "/login.php",
+		data: {login, password},
+		success: function(res){
+			if (!res.error) {
+				return res.user_id;
+			}
+			else {
+				alert(res.error);
+			}
+		}
+	});
+}
+
+function register(login, password) {
+	$.ajax({
+		type: "POST",
+		url: serverAddress + "/register.php",
+		data: {login, password},
+		success: function(res){
+			if (!res.error) {
+				alert(res.res);
+				return res.res;
+			}
+			else {
+				alert(res.error);
+			}
+		}
+	});
+}
+
 
 
 $(document).ready(function(){
-
-	$.ajax({
-		type: "POST",
-		url: serverAddress + "/create_card.php",
-		data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
-		success: function(msg){
-			$(".sendMessage").html("Отправка завершена!");
-		}
-	});
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');
@@ -140,6 +164,10 @@ $(document).ready(function(){
 	
 	$(".qwe2").click(function(){
 		alert(localStorage.getItem('key'));
+	});
+	
+	$(".registerButton").click(function() {
+		register($(".registerLogin").val(), $(".registerPassword").val());
 	});
 	
 	$(".js-take-photo").click(function(){
