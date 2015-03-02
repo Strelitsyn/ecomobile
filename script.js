@@ -126,6 +126,7 @@ function login(login, password) {
 		type: "POST",
 		url: serverAddress + "/login.php",
 		data: {login: login, password: password},
+		dataType: "json", 
 		success: function(res){
 			if (!res.error) {
 				return res.user_id;
@@ -140,7 +141,7 @@ function login(login, password) {
 function register(login, password) {
 	$.ajax({
 		type: "POST",
-		url: "/register.php",
+		url: serverAddress + "/register.php",
 		data: {login: login, password: password},
 		dataType: "json", 
 		success: function(res){
@@ -169,12 +170,40 @@ $(document).ready(function(){
 	
 	$(".js-register-button").click(function() {
 		alert("register");
-		register($(".js-register-login").val(), $(".js-register-password").val());
+		$.ajax({
+			type: "POST",
+			url: serverAddress + "/register.php",
+			data: {login: $(".js-register-login").val(), password: $(".js-register-password").val()},
+			dataType: "json", 
+			success: function(res){
+				if (!res.error) {
+					alert(res.res);
+					return res.res;
+				}
+				else {
+					alert(res.error);
+				}
+			}
+		});
 	});
 	
 	$(".js-register-button1").click(function() {
 		alert("register");
-		register($(".js-register-login1").val(), $(".js-register-password1").val());
+		$.ajax({
+			type: "POST",
+			url: serverAddress + "/register.php",
+			data: {login: $(".js-register-login1").val(), password: $(".js-register-password1").val()},
+			dataType: "json", 
+			success: function(res){
+				if (!res.error) {
+					alert(res.res);
+					return res.res;
+				}
+				else {
+					alert(res.error);
+				}
+			}
+		});
 	});
 	
 	$(".js-take-photo").click(function(){
