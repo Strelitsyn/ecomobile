@@ -159,6 +159,7 @@ function register(login, password) {
 
 
 $(document).ready(function(){
+alert(123);
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');
