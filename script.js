@@ -125,7 +125,7 @@ function login(login, password) {
 	$.ajax({
 		type: "POST",
 		url: serverAddress + "/login.php",
-		data: {login, password},
+		data: {login: login, password: password},
 		success: function(res){
 			if (!res.error) {
 				return res.user_id;
@@ -141,7 +141,7 @@ function register(login, password) {
 	$.ajax({
 		type: "POST",
 		url: serverAddress + "/register.php",
-		data: {login, password},
+		data: {login: login, password: password},
 		success: function(res){
 			if (!res.error) {
 				alert(res.res);
@@ -166,8 +166,14 @@ $(document).ready(function(){
 		alert(localStorage.getItem('key'));
 	});
 	
-	$(".registerButton").click(function() {
-		register($(".registerLogin").val(), $(".registerPassword").val());
+	$(".js-register-button").click(function() {
+		alert("register");
+		register($(".js-register-login").val(), $(".js-register-password").val());
+	});
+	
+	$(".js-register-button1").click(function() {
+		alert("register");
+		register($(".js-register-login1").val(), $(".js-register-password1").val());
 	});
 	
 	$(".js-take-photo").click(function(){
