@@ -189,8 +189,7 @@ alert(123);
 	});
 	
 	$(".js-register-button1").click(function() {
-		alert("register");
-		$.ajax({
+		/*$.ajax({
 			type: "POST",
 			url: serverAddress + "/register.php",
 			data: {login: $(".js-register-login1").val(), password: $(".js-register-password1").val()},
@@ -204,7 +203,8 @@ alert(123);
 					alert(res.error);
 				}
 			}
-		});
+		});*/
+		register($(".js-register-login1").val(), $(".js-register-password1").val());
 	});
 	
 	$(".js-take-photo").click(function(){
