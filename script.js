@@ -159,7 +159,6 @@ function register(login, password) {
 
 
 $(document).ready(function(){
-alert(123);
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');
@@ -170,40 +169,10 @@ alert(123);
 	});
 	
 	$(".js-register-button").click(function() {
-		alert("register");
-		$.ajax({
-			type: "POST",
-			url: serverAddress + "/register.php",
-			data: {login: $(".js-register-login").val(), password: $(".js-register-password").val()},
-			dataType: "json", 
-			success: function(res){
-				if (!res.error) {
-					alert(res.res);
-					return res.res;
-				}
-				else {
-					alert(res.error);
-				}
-			}
-		});
+		register($(".js-register-login").val(), $(".js-register-password").val());
 	});
 	
 	$(".js-register-button1").click(function() {
-		/*$.ajax({
-			type: "POST",
-			url: serverAddress + "/register.php",
-			data: {login: $(".js-register-login1").val(), password: $(".js-register-password1").val()},
-			dataType: "json", 
-			success: function(res){
-				if (!res.error) {
-					alert(res.res);
-					return res.res;
-				}
-				else {
-					alert(res.error);
-				}
-			}
-		});*/
 		register($(".js-register-login1").val(), $(".js-register-password1").val());
 	});
 	
