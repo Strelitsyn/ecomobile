@@ -140,8 +140,9 @@ function login(login, password) {
 function register(login, password) {
 	$.ajax({
 		type: "POST",
-		url: serverAddress + "/register.php",
+		url: "/register.php",
 		data: {login: login, password: password},
+		dataType: "json", 
 		success: function(res){
 			if (!res.error) {
 				alert(res.res);
