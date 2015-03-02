@@ -96,27 +96,15 @@ function uploadPhoto(imageURI){
 	);
 }
 
-function showLoader(){
-	$.mobile.loading("show",{
-		text: "",
-		textVisible: false,
-		theme: "a",
-		textonly: false,
-		html: ""
-    });
-}
-
-function hideLoader() {
-	$.mobile.loading("hide");
-}
-
-function getUserId() {
+function getCurrentUserId() {
 	$.ajax({
 		type: "POST",
-		url: serverAddress + "/get_user_id.php",
-		data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
-		success: function(msg){
-			$(".sendMessage").html("Отправка завершена!");
+		url: serverAddress + "/get_current_user_id.php",
+		data: {},
+		dataType: "json",
+		success: function(res){
+			alert(res.userId);
+			return(res.userId);
 		}
 	});
 }
@@ -169,30 +157,16 @@ $(document).ready(function(){
 		alert(localStorage.getItem('key'));
 	});
 	
+	$(".qwe3").click(function(){
+		getCurrentUserId();
+	});
+	
 	$(".js-register-button").click(function() {
 		register($("#register .js-login").val(), $("#register .js-password").val());
 	});
 	
 	$(".js-login-button").click(function() {
 		login($("#login .js-login").val(), $("#login .js-password").val());
-	});
-	
-	$(".js-register-button1").click(function() {
-		$.ajax({
-			type: "POST",
-			url: "/register.php",
-			data: {login: $(".js-register-login1").val(), password: $(".js-register-password1").val()},
-			dataType: "json", 
-			success: function(res){
-				if (!res.error) {
-					alert(res.res);
-					return res.res;
-				}
-				else {
-					alert(res.error);
-				}
-			}
-		});
 	});
 	
 	$(".js-take-photo").click(function(){
