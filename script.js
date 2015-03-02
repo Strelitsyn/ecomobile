@@ -1,5 +1,5 @@
 ﻿// Сервер
-var serverAddress = "http://ecomobile.tioo.ru";
+var serverAddress = "http://ecomobile.16mb.com";
 // Массив со ссылками на фото
 var images = []; 
 // Коммент

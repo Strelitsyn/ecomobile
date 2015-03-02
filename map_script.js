@@ -6,7 +6,7 @@
 	{ preset: 'islands#dotIcon', iconColor: "#0f0" }, //решена
 ];
 var dbData = [];
-var serverAddress = "http://ecomobile.tioo.ru";
+var serverAddress = "http://ecomobile.16mb.com";
 var cards = [];
 
 /*function markClick(e) {
