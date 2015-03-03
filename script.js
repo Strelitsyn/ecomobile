@@ -168,6 +168,9 @@ $(document).ready(function(){
 		window.location.replace("index.html#map");
 		locateMarks();
 	}
+	else {
+		window.location.replace("index.html#enter");
+	}
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');

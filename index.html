@@ -14,7 +14,11 @@
 	</head>
 	<body>
 	
-		<!-- НАЧАЛО -->
+		<!-- СТАРТ -->
+		<div data-role="page" id="start">
+		</div>
+	
+		<!-- ВХОД -->
 		<div data-role="page" id="enter">
 			<div data-role="header">
 				<h1>Вход</h1>
@@ -116,11 +120,18 @@
 		
 		<!-- КАРТА -->
 		<div data-role="page" id="map">
+			<div data-role="panel" id="step1_menu"> 
+				<h2>Panel Header</h2>
+				<p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+			</div>
 			<div data-role="header">
 				<h1>Карта</h1>
 			</div>
 			<div data-role="content">
 				<div id="mapBlock"></div>
+			</div>
+			<div data-role="footer">
+				<a href="#step1_menu"><button>Open Panel</button></a>
 			</div>
 		</div>
 	</body>
