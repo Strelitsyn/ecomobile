@@ -160,7 +160,8 @@ $(document).ready(function(){
 	});
 	
 	$(".js-login-button").click(function() {
-		bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
+		//bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
+		alert(login($("#login .js-login").val(), $("#login .js-password").val()));
 	});
 	
 	$(".js-take-photo").click(function(){
