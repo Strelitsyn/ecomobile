@@ -32,8 +32,13 @@
 .commentBlock {
 }
 
-.sendMessage {
+.infoMessage {
 	text-align: center;
+}
+
+.errorMessage {
+	text-align: center;
+	color: #f00;
 }
 
 #mapBlock {

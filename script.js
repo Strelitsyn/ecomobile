@@ -72,16 +72,16 @@ function uploadPhoto(imageURI){
 			console.log("Response = "+ r.response);
 			console.log("Sent = "+ r.bytesSent);
 			if (r.response == "error") {
-				$(".sendMessage").html("Ошибка");
+				showError("Ошибка");
 			}
 			else {
 				serverImages.push(r.response);
 				$.ajax({
 					type: "POST",
 					url: serverAddress + "/create_card.php",
-					data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0]},
+					data: {comment: comment, latitude: latitude, longitude: longitude, photo: serverImages[0], userId: getCurrentUserId()},
 					success: function(msg){
-						$(".sendMessage").html("Отправка завершена!");
+						showMessage("Отправка завершена!");
 					}
 				});
 			}
@@ -140,6 +140,26 @@ function getCurrentUserId() {
 	return localStorage.getItem('userId');
 }
 
+function logout() {
+	localStorage.setItem('userId', 0);
+}
+
+function showMessage(msg) {
+	$(".infoMessage").html(msg);
+}
+
+function clearMessage() {
+	$(".infoMessage").html("");
+}
+
+function showError(msg) {
+	$(".errorMessage").html(msg);
+}
+
+function clearError() {
+	$(".errorMessage").html("");
+}
+
 
 
 $(document).ready(function(){
@@ -161,8 +181,11 @@ $(document).ready(function(){
 	});
 	
 	$(".js-login-button").click(function() {
-		//bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
 		login($("#login .js-login").val(), $("#login .js-password").val());
+	});
+	
+	$(".js-logout-button").click(function() {
+		logout();
 	});
 	
 	$(".button1").click(function() {

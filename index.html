@@ -20,8 +20,9 @@
 				<h1>Вход</h1>
 			</div>
 			<div data-role="content">
-				<a href="#register"><button class="goToRegisterButton">Регистрация</button></a>
-				<a href="#login"><button class="goToLoginButton">Войти</button></a>
+				<a href="#register"><button>Регистрация</button></a>
+				<a href="#login"><button>Войти</button></a>
+				<button class="js-logout-button">Выйти</button>
 			</div>
 		</div>
 		
@@ -92,11 +93,10 @@
 				<h1>Шаг 3</h1>
 			</div>
 			<div data-role="content">
-				<div class="sendCardBlock">
-					<button class="qwe">123</button>
-					<button class="js-send-card">Отправить</button>
-					<div class="sendMessage"></div>
-				</div>
+				<button class="qwe">123</button>
+				<button class="js-send-card">Отправить</button>
+				<div class="errorMessage"></div>
+				<div class="infoMessage"></div>
 				<div class="backButton">
 					<a href="#step2"><button>Назад</button></a>
 				</div>
