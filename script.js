@@ -122,7 +122,7 @@ function login(login, password) {
 		dataType: "json", 
 		success: function(res){
 			if (!res.error) {
-				return res.user_id;
+				return 123;
 			}
 			else {
 				alert(res.error);
@@ -162,6 +162,11 @@ $(document).ready(function(){
 	$(".js-login-button").click(function() {
 		//bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
 		alert(login($("#login .js-login").val(), $("#login .js-password").val()));
+	});
+	
+	$(".button1").click(function() {
+		//bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
+		alert(login($(".js-login1").val(), $(".js-password1").val()));
 	});
 	
 	$(".js-take-photo").click(function(){
