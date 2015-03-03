@@ -20,7 +20,8 @@
 				<h1>Вход</h1>
 			</div>
 			<div data-role="content">
-				<a href="#register"><button>Регистрация</button></a>
+				<div class="center">Добро пожаловать</div>
+				<a href="#register"><button data-icon="plus">Регистрация</button></a>
 				<a href="#login"><button>Войти</button></a>
 				<button class="js-logout-button">Выйти</button>
 			</div>
@@ -53,6 +54,10 @@
 	
 		<!-- ШАГ 1 -->
 		<div data-role="page" id="step1">
+			<div data-role="panel" id="step1_menu"> 
+				<h2>Panel Header</h2>
+				<p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+			</div>
 			<div data-role="header">
 				<h1>Шаг 1</h1>
 			</div>
@@ -66,6 +71,9 @@
 					<img class="photo" src=""/>
 				</div>
 				<a href="#step2"><button class="nextButton">Дальше</button></a>
+			</div>
+			<div data-role="footer">
+				<a href="#step1_menu"><button>Open Panel</button></a>
 			</div>
 		</div>
 		

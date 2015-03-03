@@ -32,6 +32,10 @@
 .commentBlock {
 }
 
+.center {
+	text-align: center;
+}
+
 .infoMessage {
 	text-align: center;
 }
