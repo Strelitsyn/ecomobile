@@ -165,11 +165,11 @@ function clearError() {
 $(document).ready(function(){
 
 	if (getCurrentUserId() != 0) {
-		window.location.href = "index.html#map";
+		window.location.replace("index.html#map");
 		locateMarks();
 	}
 	else {
-		window.location.href = "index.html#enter";
+		window.location.replace("index.html#enter");
 	}
 	
 	$(".qwe1").click(function(){
@@ -194,6 +194,7 @@ $(document).ready(function(){
 	
 	$(".js-logout-button").click(function() {
 		logout();
+		window.location.replace("index.html#enter");
 	});
 	
 	$(".button1").click(function() {
