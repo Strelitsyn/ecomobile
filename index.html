@@ -113,7 +113,7 @@
 		
 		<!-- КАРТА -->
 		<div data-role="page" id="map">
-			<div data-role="panel" id="map_menu"> 
+			<div data-role="panel" id="map_menu" class="slidingMenu"> 
 				<h2>Panel Header</h2>
 				<p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
 			</div>
@@ -122,10 +122,9 @@
 			</div>
 			<div data-role="main" class="ui-content">
 				<div id="mapBlock"></div>
-				<a href="#map_menu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
 			</div>
 			<div data-role="footer">
-				
+				<button class="js-show-sliding-menu-button">Меню</button>
 			</div>
 		</div>
 	</body>

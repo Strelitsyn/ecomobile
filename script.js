@@ -219,4 +219,7 @@ $(document).ready(function(){
 		uploadPhoto(images[0]);
 	});
     
+	$(".js-show-sliding-menu-button").click(function(){
+		$(".slidingMenu").show();
+	});
 });
