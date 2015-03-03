@@ -165,7 +165,7 @@ function clearError() {
 $(document).ready(function(){
 
 	if (getCurrentUserId() != 0) {
-		window.location.replace("#map");
+		window.location.replace("/index.php#map");
 		locateMarks();
 	}
 	
