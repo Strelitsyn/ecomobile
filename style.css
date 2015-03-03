@@ -64,4 +64,6 @@
 	.slidingMenu .option {
 		height: 70px;
 		border-bottom: 1px solid #eee;
+		color: #fff;
+		vertical-align: center;
 	}
