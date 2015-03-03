@@ -96,19 +96,6 @@ function uploadPhoto(imageURI){
 	);
 }
 
-function getCurrentUserId() {
-	$.ajax({
-		type: "POST",
-		url: serverAddress + "/get_current_user_id.php",
-		data: {},
-		dataType: "json",
-		success: function(res){
-			alert(res.userId);
-			return(res.userId);
-		}
-	});
-}
-
 function register(login, password) {
 	$.ajax({
 		type: "POST",
@@ -135,7 +122,6 @@ function login(login, password) {
 		dataType: "json", 
 		success: function(res){
 			if (!res.error) {
-				alert(res.user_id);
 				return res.user_id;
 			}
 			else {
@@ -143,6 +129,14 @@ function login(login, password) {
 			}
 		}
 	});
+}
+
+function bindUser(userId) {
+	localStorage.setItem('userId', userId);
+}
+
+function getCurrentUserId() {
+	return localStorage.getItem('userId');
 }
 
 
@@ -166,7 +160,7 @@ $(document).ready(function(){
 	});
 	
 	$(".js-login-button").click(function() {
-		login($("#login .js-login").val(), $("#login .js-password").val());
+		bindUser(login($("#login .js-login").val(), $("#login .js-password").val()));
 	});
 	
 	$(".js-take-photo").click(function(){
