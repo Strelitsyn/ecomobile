@@ -163,6 +163,11 @@ function clearError() {
 
 
 $(document).ready(function(){
+
+	if (getCurrentUserId() != 0) {
+		window.location.replace("#map");
+		locateMarks();
+	}
 	
 	$(".qwe1").click(function(){
 		localStorage.setItem('key', 'value');
