@@ -52,7 +52,6 @@
 				<input type="text" class="js-login"/>
 				<input type="text" class="js-password"/>
 				<button class="js-login-button">Войти</button>
-				<button class="qwe3">id</button>
 			</div>
 		</div>
 	
@@ -64,8 +63,6 @@
 			<div data-role="content">
 				<div class="takePhotoButton">
 					<button class="js-take-photo">Сделать фото</button>
-					<button class="qwe1">qwe1</button>
-					<button class="qwe2">qwe2</button>
 				</div>
 				<div class="photoBlock">
 					<img class="photo" src=""/>
@@ -98,7 +95,6 @@
 				<h1>Шаг 3</h1>
 			</div>
 			<div data-role="content">
-				<button class="qwe">123</button>
 				<button class="js-send-card">Отправить</button>
 				<div class="errorMessage"></div>
 				<div class="infoMessage"></div>
@@ -113,11 +109,11 @@
 		
 		<!-- КАРТА -->
 		<div data-role="page" id="map">
-			<div data-role="panel" id="map_menu" class="slidingMenu"> 
+			<!--<div data-role="panel" id="map_menu" class="slidingMenu"> 
 				<a href="#map"><div class="option">Карта</div></a>
 				<a href="#step1"><div class="option">Добавить</div></a>
 				<div class="option js-logout-button">Выйти</div>
-			</div>
+			</div>-->
 			<div data-role="header">
 				<h1>Карта</h1>
 			</div>
@@ -125,7 +121,9 @@
 				<div id="mapBlock"></div>
 			</div>
 			<div data-role="footer">
-				<button class="js-show-sliding-menu-button">Меню</button>
+				<button><a href="#map">Карта</a></button>
+				<button><a href="#step1">Добавить</a></button>
+				<button class="js-logout-button">Выйти</button>
 			</div>
 		</div>
 	</body>

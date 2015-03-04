@@ -95,11 +95,12 @@ function locateMarks() {
 
 ymaps.ready(function() {
 	initMap();
+	locateMarks();
 });
 	
 
 $(document).ready(function() {
 	$(".js-locate_marks").click(function(){
-		locateMarks();
+		//locateMarks();
 	});
 });
