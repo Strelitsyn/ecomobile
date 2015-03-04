@@ -105,6 +105,7 @@ function register(login, password) {
 		success: function(res){
 			if (!res.error) {
 				alert(res.res);
+				window.location.replace("index.html#login");
 				return res.res;
 			}
 			else {
@@ -123,6 +124,7 @@ function login(login, password) {
 		success: function(res){
 			if (!res.error) {
 				bindUser(res.user_id);
+				window.location.replace("index.html#map");
 				return res.user_id;
 			}
 			else {
