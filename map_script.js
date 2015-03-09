@@ -83,9 +83,9 @@ function locateMarks() {
 				map.geoObjects.add(cards[i]);
 				
 				// Клик по метке
-				cards[i].events.add('click', function(e) {
+				/*cards[i].events.add('click', function(e) {
 					markClick(e);
-				});
+				});*/
 			}
 		}
 		else {
