@@ -11,8 +11,9 @@ var cards = [];
 
 /*function markClick(e) {
 	var eCard = e.get('target');
+	alert(eCard.id);
 	// Получение информации по карточке
-	$.ajax({
+	/*$.ajax({
 		type: "POST",
 		url: "/eco/actions.php",
 		data: { action: "get_card_info", card_id: eCard.id },
@@ -82,9 +83,9 @@ function locateMarks() {
 				map.geoObjects.add(cards[i]);
 				
 				// Клик по метке
-				/*cards[i].events.add('click', function(e) {
+				cards[i].events.add('click', function(e) {
 					markClick(e);
-				});*/
+				});
 			}
 		}
 		else {
@@ -101,6 +102,6 @@ ymaps.ready(function() {
 
 $(document).ready(function() {
 	$(".js-locate_marks").click(function(){
-		//locateMarks();
+		locateMarks();
 	});
 });
